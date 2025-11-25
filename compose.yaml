@@ -1,0 +1,50 @@
+
+services:
+
+  php:
+    image: php:8.4-fpm
+    container_name: php_esportify6
+    volumes:
+      - .:/var/www/html
+    restart: always
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx_esportify6
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - .:/var/www/html
+    depends_on:
+      - php
+    restart: always
+
+  database:
+    image: mysql:latest
+    container_name: mysql_esportify6
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin_esportify6
+    environment:
+      PMA_HOST: database
+      PMA_USER: ${DB_USER}
+      PMA_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - "8081:80"
+    restart: always
+
+
+volumes:
+  db_data:
