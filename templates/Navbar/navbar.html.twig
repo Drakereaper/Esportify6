@@ -1,0 +1,37 @@
+<nav class="relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-row">
+        <div class="flex items-center justify-between h-16">
+            <div id="titres" class="flex flex-col items-start leading-none">
+                <a id="titre" class="text-4xl font-extrabold no-underline" href="{{ path('app_home') }}">Esportify</a>
+                <a id="sous-titre" class="text-xl font-bold no-underline mt-0" href="{{ path('app_home') }}">France e-sport</a>
+            </div>
+            <button id="mobile-menu-button" type="button" command="--toggle" commandfor="mobile-menu" class="md:hidden">
+                <span class="sr-only">Ouvrir le menu principal</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 in-aria-expanded:hidden">
+                    <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 not-in-aria-expanded:hidden">
+                    <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+                <div class="hidden md:flex md:flex-1 md:items-center">
+                    <div id="navbarNav" class="flex-1 flex justify-center">
+                        <ul id="menu-navbar" class="flex space-x-10">
+                            <li id="nav-link">
+                                <a aria-current="page">Accueil</a>
+                            </li>
+                            <li id="nav-link">
+                                <a>Evènements</a>
+                            </li>
+                            <li id="nav-link">
+                                <a>Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                <div class="flex space-x-4">
+                    <button id="inscription">Inscription</button>
+                    <button id="connexion">Connexion</button>
+                </div>
+            </div>
+        
+</nav>
